@@ -1,0 +1,23 @@
+ion-content {
+  --background: url('../../assets/images/bg.jpg') repeat 100% 100% ;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 0.5px rgba(33, 33, 33, 0.2);
+}
+
+.box-shadowd {
+  text-shadow: 1px 1px 0.5px rgba(33, 33, 33, 0.2);
+}
+
+ion-segment-button {
+  color: #eeeeee;
+}
+
+ion-segment-button::part(indicator) {
+  //width: 50%;
+}
+
+ion-segment {
+
+}

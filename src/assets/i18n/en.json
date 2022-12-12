@@ -1,0 +1,108 @@
+{
+  "1": {
+    "1": "In the news",
+    "2": "Recent",
+    "3": "For you",
+    "4": "View more",
+    "5": "No content for the moment",
+    "6": "Hide"
+  },
+  "2": {
+    "1": "Choose your country",
+    "2": "All countries"
+  },
+  "3": {
+    "1": "Most viewed",
+    "2": "Most commented"
+  },
+  "4": {
+    "1": "Media library",
+    "2": "Add a photo or movie",
+    "3": "Drag your photos or movie here",
+    "4": "Or",
+    "5": "+ Add",
+    "6": "Express survey",
+    "7": "You must be logged in to perform this operation",
+    "8": "Answer",
+    "9": "Select the countries to be published",
+    "10": "Publish",
+    "11": "Add tag",
+    "12": "Yes or No",
+    "13": "True or False",
+    "14": "Agree or Disagree",
+    "15": "Other"
+  },
+  "5": {
+    "1": "Topics",
+    "2": "Discover the list of the most popular tags of the moment"
+  },
+  "6": {
+    "2" : "Enter the searched text"
+  },
+  "10": {
+    "1": "Profil",
+    "2": "Informations",
+    "3": "Change language",
+    "4" : "Do you really want to disconnect ?",
+    "5" : "CANCEL",
+    "6" : "Update profil",
+    "7" : "Login with a phone number",
+    "8" : "Connect with google",
+    "9" : "Log Out"
+  },
+  "11": {
+	"1": "Update profile",
+	"2": "Save",
+	"3": "Loading...",
+	"4": "Informations user",
+	"5": "Name"
+  },
+  "12": {
+    "1" : "Update language",
+    "2" : "Informations language",
+    "3" : "Automatic",
+    "4" : "Save"
+  },
+  "13": {
+    "1" : "Connect witch phone",
+    "2" : "Country number",
+    "3" : "Phone number",
+    "4" : "Send",
+    "5" : "Enter the received code",
+    "6" : "Confirm"
+  },
+  "14": {
+    "1" : "Home",
+    "2" : "Top",
+    "3" : "Topics",
+    "4" : "Profil"
+  },
+  "15": {
+    "1": "Overview",
+    "2": "Comments",
+    "3": "Write",
+    "4": "Your answer...",
+    "5": "Send",
+    "6": "Write...",
+    "7": "Report",
+    "8": "Spam or fraudulent content",
+    "9": "Pornography, vulgar",
+    "10": "Rude or inappropriate language",
+    "11": "Offensive",
+    "12": "Racial Discrimination",
+    "13": "Other"
+  },
+  "16": {
+    "1": "Send with success",
+    "2": "The article has been successfully added to the archive",
+    "3": "The article has been successfully removed from the archive"
+  },
+  "17" : {
+    "1" : "Results",
+    "2" : "No element"
+  },
+  "18": {
+    "1": "Reply to comment",
+    "2": "Send"
+  }
+}

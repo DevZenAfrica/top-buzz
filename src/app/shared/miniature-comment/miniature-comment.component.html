@@ -1,0 +1,36 @@
+<div class="grid grid-cols-8 gap-1 my-2 mx-3" *ngIf="data">
+  <div class="col-span-1">
+    <img [src]="currentUserComment && currentUserComment.photo ? currentUserComment.photo : 'assets/images/user.png'" width="30px" class="inline-block rounded-full" height="30px"/>
+  </div>
+  <div class="col-span-7 text-sm pb-2">
+    <div class="grid grid-cols-2">
+      <span class="ion-text-left text-xs capitalize text-black font-bold subpixel-antialiased">{{currentUserComment ? currentUserComment.userName : '...'}}</span>
+      <span *ngIf="currentUser" class="ion-text-right items-center ion-align-items-center text-gray-400">
+        <ng-container>
+          <svg xmlns="http://www.w3.org/2000/svg" (click)="like()" class="h-4 w-4 {{data.likes.includes(currentUser.id) ? 'text-yellow-500' : 'text-gray-400'}} inline-flex" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" d="M9.58 1.052c-.75-.209-1.336.35-1.545.871c-.24.6-.453 1.021-.706 1.524a44.75 44.75 0 0 0-.533 1.09c-.475 1.01-.948 1.656-1.293 2.045a4.063 4.063 0 0 1-.405.402a1.92 1.92 0 0 1-.101.081l-.016.012L3.109 8.18a2 2 0 0 0-.856 2.426l.52 1.384a2 2 0 0 0 1.273 1.205l5.356 1.682a2.5 2.5 0 0 0 3.148-1.68l1.364-4.647a2 2 0 0 0-1.92-2.563H10.61c.066-.227.133-.479.195-.74c.131-.562.243-1.203.232-1.738c-.009-.497-.06-1.019-.264-1.462c-.219-.475-.602-.832-1.192-.996ZM4.978 7.08l-.002.001Z"/></svg>
+          {{data.likes.length}}
+        </ng-container>
+        <ng-container>
+          <svg (click)="dislike()" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 {{data.disLikes.includes(currentUser.id) ? 'text-yellow-500' : 'text-gray-400'}} inline-flex" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" d="M13.094 4.62a3.5 3.5 0 0 0-4.377-2.727l-4.95 1.375a2 2 0 0 0-1.43 1.558l-.224 1.196c-.165.879.46 1.647 1.157 1.936c.255.106.546.253.853.458c1.68 1.119 2.48 2.636 3.016 3.925c.096.232.188.47.277.699c.146.376.284.73.416 1.001c.111.227.245.455.42.63c.186.188.435.329.748.329c.357 0 .666-.124.912-.34c.235-.207.393-.481.502-.761c.214-.554.281-1.251.29-1.893A14.73 14.73 0 0 0 10.577 10h.512a2.5 2.5 0 0 0 2.457-2.961l-.453-2.42Z"/></svg>
+          &nbsp;{{data.disLikes.length}}
+        </ng-container>
+      </span>
+    </div>
+    <p class="text-xs text-gray-900 subpixel-antialiased">{{data.text}}</p>
+    <div class="text-gray-400 font-semibold text-xs space-x-2">
+      <span>
+        {{diffTime(data.date).min < 1 ? 'a few sec ago' : (diffTime(data.date).hour < 1 ? diffTime(data.date).min + ' min ago' : (diffTime(data.date).hour < 24 ? diffTime(data.date).hour + ' hour ago' : (diffTime(data.date).day < 30 ? diffTime(data.date).day + ' days ago' : data.date | date : 'd/M/yy')))}}
+      </span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-flex text-gray-400" (click)="repondreComment()" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M7.707 3.293a1 1 0 010 1.414L5.414 7H11a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+      </svg>
+      <svg (click)="presentReport()" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-flex" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M6.5 2c1.1 0 2 .9 2 2s-.9 2-2 2s-2-.9-2-2s.9-2 2-2zm9 7.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5S17.83 8 17 8s-1.5.67-1.5 1.5zm3 2.5h-2.84c-.58.01-1.14.32-1.45.86l-.92 1.32L9.72 8a2.02 2.02 0 0 0-1.71-1H5c-1.1 0-2 .9-2 2v6h1.5v7h5V11.61L12.03 16h2.2l.77-1.1V22h4v-5h1v-3.5c0-.82-.67-1.5-1.5-1.5z"/></svg>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="reponseComment.length > 0" class="ml-12">
+  <app-miniature-comment [idComment]="comment.id" [data]="comment" *ngFor="let comment of reponseComment"></app-miniature-comment>
+</div>
+
+<!--div class="{{data && data.idParent ? '' : 'border-b border-gray-200 mb-5'}}"></div-->

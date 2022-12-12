@@ -1,0 +1,7 @@
+{
+  "name": "bible-plus",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

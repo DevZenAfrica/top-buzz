@@ -1,0 +1,57 @@
+.elt-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Just styling the content of the div, the *magic* in the previous rules */
+.elt-container .quickPoll {
+  z-index: 5;
+  position: absolute;
+  bottom: 15%;
+  right: 0px;
+  left: 0px;
+}
+
+.elt-container .commandes {
+  z-index: 3;
+  position: absolute;
+  bottom: 35%;
+  right: 0px;
+}
+
+.elt-container .descriptions {
+  z-index: 4;
+  position: absolute;
+  bottom: 25%;
+  left: 0px;
+  right: 0px;
+}
+
+.elt-container .controleur-video {
+  z-index: 2;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.elt-container .controleur-video .zone-btn-play {
+  position: absolute;
+  top: 45%;
+  left: 0px;
+  right: 0px;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 0.5px rgba(33, 33, 33, 0.2);
+}
+
+.ion-modal-comment {
+  --border-radius: 5px 5px 0% 0%;
+}
+
+.swiper-slide {
+  width: auto;
+}

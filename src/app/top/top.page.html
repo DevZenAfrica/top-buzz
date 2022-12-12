@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="z-10 text-sm font-medium text-center text-white text-shadow">
+  <ul class="flex flex-wrap -mb-px text-center ion-justify-content-center">
+    <li class="mr-2" (click)="slideTo(0)">
+      <a class="inline-block p-2 font-bold rounded-t-lg border-b-2 {{ currentSegment === 0 ? 'text-yellow-500 border-yellow-500 active drop-shadow-2xl' : 'border-transparent hover:text-gray-600 hover:border-gray-300'}}">{{'3.1' | translate}}</a>
+    </li>
+    <li class="mr-2" (click)="slideTo(1)">
+      <a class="inline-block p-2 font-bold rounded-t-lg border-b-2 {{ currentSegment === 1 ? 'text-yellow-500 border-yellow-500 active drop-shadow-2xl' : 'border-transparent hover:text-gray-600 hover:border-gray-300'}}" aria-current="page">{{'3.2' | translate}}</a>
+    </li>
+  </ul>
+</div>
+<ion-content fullscreen="true" class="h-screen w-screen bg-transparent items-center bg-cover bg-center ion-no-padding ion-no-margin">
+  <ion-slides #slides2 pager="false" [options]="slideOpts" (ionSlideWillChange)="ionSlideWillChange()">
+    <ion-slide>
+      <app-print-most-viewed *ngIf="currentSegment === 0"></app-print-most-viewed>
+    </ion-slide>
+    <ion-slide>
+      <app-print-most-commented *ngIf="currentSegment === 1"></app-print-most-commented>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<ion-content class="bg-transparent relative h-fit w-full flex items-center justify-start text-left bg-cover bg-center" fullscreen="true">
+  <section>
+    <div class="px-4 pb-4">
+      <h2 class="text-xl text-yellow-500 font-light">{{'5.1' | translate}}</h2>
+      <p class="text-base text-white font-light my-2">
+        {{'5.2' | translate}}
+      </p>
+    </div>
+  </section>
+
+  <section class="px-4 h-3/4 overflow-y-scroll space-x-1">
+    <a href="search?txt={{hash.replace('#', '')}}" [style]="'font-size: ' + countNberTag(hash) +'px'" class="{{i%2 === 0 ? 'font-bold' : ''}} {{i%2 === 0 ? 'text-yellow-500' : 'text-white'}}" *ngFor="let hash of listeHashTag, let i = index">{{hash}}</a>
+  </section>
+</ion-content>

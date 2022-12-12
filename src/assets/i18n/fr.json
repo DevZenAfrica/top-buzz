@@ -1,0 +1,108 @@
+{
+  "1": {
+    "1": "Dans l'actualité",
+    "2": "Récent",
+    "3": "Pour vous",
+    "4": "Voir plus",
+    "5": "Aucun contenu pour le moment",
+    "6": "Masqué"
+  },
+  "2": {
+    "1": "Choisissez votre pays",
+    "2": "Tous les pays"
+  },
+  "3": {
+    "1": "Les plus consultés",
+    "2": "Le plus commenté"
+  },
+  "4": {
+    "1" : "Médiathèque",
+    "2" : "Ajouter une photo ou une video",
+    "3" : "Faites glisser vos photos ou votre video ici",
+    "4" : "Ou",
+    "5" : "+ Ajouter",
+    "6" : "Reponse express",
+    "7" : "Vous devez être connecté pour effectuer cette opération",
+    "8" : "Réponse",
+    "9" : "Sélectionnez les pays à publier",
+    "10" : "Publier",
+    "11" : "Ajouter un tag",
+    "12" : "Oui ou Non",
+    "13" : "Vrai ou Faux",
+    "14" : "D'accord ou Pas d'accord",
+    "15" : "Autres"
+  },
+  "5": {
+    "1": "Sujets",
+    "2": "Découvrez la liste des tags les plus populaires du moment"
+  },
+  "6": {
+    "2" : "Entrez le texte recherché"
+  },
+  "10": {
+    "1": "Profil",
+    "2": "Informations",
+    "3": "Changer de langue",
+    "4": "Voulez-vous vraiment vous déconnecter ?",
+    "5": "ANNULER",
+    "6": "Mettre à jour le profil",
+    "7": "Se connecter avec un numéro de téléphone",
+    "8": "Se connecter avec google",
+    "9" : "Déconnexion"
+  },
+  "11": {
+    "1": "Mettre à jour le profil",
+    "2": "Sauvegarder",
+    "3": "Chargement...",
+    "4": "Informations utilisateur",
+    "5": "Nom"
+  },
+  "12": {
+    "1": "Langue de mise à jour",
+    "2": "Langue des informations",
+    "3": "Automatique",
+    "4": "Enregistrer"
+  },
+  "13": {
+    "1": "Connecter le téléphone",
+    "2": "Numéro de pays",
+    "3": "Numéro de téléphone",
+    "4": "Envoyer",
+    "5": "Entrez le code reçu",
+    "6": "Confirmer"
+  },
+  "14": {
+    "1": "Accueil",
+    "2": "Top",
+    "3": "Hashtag",
+    "4": "Profil"
+  },
+  "15": {
+    "1": "Vue d'ensemble",
+    "2": "Commentaires",
+    "3": "Ecrire",
+    "4": "Votre réponse...",
+    "5": "Envoyer",
+    "6": "Ecrire...",
+    "7": "Rapport",
+    "8": "Spam ou contenu frauduleux",
+    "9": "Pornographie, vulgaire",
+    "10": "Langage grossier ou inapproprié",
+    "11": "Offensive",
+    "12": "Discrimination raciale",
+    "13": "Autre"
+  },
+  "16": {
+    "1": "Envoyer avec succès",
+    "2": "L'article a été ajouté avec succès à l'archive",
+    "3": "L'article a été retiré des archives avec succès"
+  },
+  "17": {
+    "1": "Résultats",
+    "2": "Aucun élément"
+  },
+  "18": {
+    "1": "Repondre au commentaire",
+    "2": "Envoyer"
+  }
+}

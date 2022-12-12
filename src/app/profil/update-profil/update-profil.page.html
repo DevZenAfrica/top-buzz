@@ -1,0 +1,59 @@
+<ion-header class="text-white ion-no-border" translucent="true">
+  <ion-toolbar color="translucent">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/profil"></ion-back-button>
+      <ion-title class="font-medium">{{'11.1' | translate}}</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <div class="max-w-full h-fit mt-3 mx-3 px-3 py-5 bg-white rounded-md">
+    <h3 class="text-xl font-medium text-gray-900">{{'11.4' | translate}}</h3>
+    <div *ngIf="currentUser">
+      <form [formGroup]="uploadForm">
+        <div *ngIf="!imgFile" class="mt-3 relative h-36 flex justify-center items-center hover:cursor-pointer">
+          <div class="absolute">
+            <div class="flex flex-col items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5" stroke="currentColor" class="h-24 w-24 text-gray-900">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+          </div> <input *ngIf="!isLoading" type="file" formControlName="file" (change)="onImageChange($event)" accept="image/*" class="h-full w-full opacity-0" name="file">
+        </div>
+        <div  *ngIf="imgFile" class="my-3 h-24 bg-contain bg-center bg-no-repeat {{isLoading ? 'opacity-50' : ''}}" [style]="'background-image: url(' + imgFile + ')'">
+          <input *ngIf="!isLoading" type="file" formControlName="file" (change)="onImageChange($event)" accept="image/*" class="h-full w-full opacity-0" name="file">
+        </div>
+        <div class="text-center">
+          <span class="text-sm text-center">Click on the picture to modify</span>
+        </div>
+      </form>
+    </div>
+    <div class="text-center py-8" *ngIf="isLoading && !currentUser">
+      <div role="status">
+        <svg class="inline mr-2 w-8 h-8 text-gray-200 animate-spin fill-yellow-400" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+          <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+        </svg>
+        <span class="sr-only">{{'11.3' | translate}}</span>
+      </div>
+    </div>
+    <form #form="ngForm" (ngSubmit)="save()" *ngIf="currentUser">
+      <ion-list class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label position="floating">{{'11.5' | translate}} <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input name="userName" [disabled]="isLoading" [(ngModel)]="currentUser.userName" required inputmode="text" type="text"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <div class="space-x-2 mt-3" *ngIf="currentUser">
+      <button [disabled]="isLoading" (click)="save()" type="button" class="disabled:bg-gray-200 disabled:text-gray-400 focus:outline-none text-black bg-yellow-400 font-light rounded-sm text-base px-3 py-2 mt-2 ">
+        {{'11.2' | translate}}
+      </button>
+      <button *ngIf="imgFile" [disabled]="isLoading" (click)="imgFile = null; lienGenerer = ''" type="button" class="disabled:bg-gray-200 disabled:text-gray-400 focus:outline-none text-white bg-red-600 font-light rounded-sm text-base px-3 py-2 mt-2 ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="inline w-6 h-6" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4.53L17.74 9l-1.89 1.47l1.43 1.42L21 9l-9-7l-2.59 2.02l1.42 1.42zm9 9.54l-1.63-1.27l-.67.52l1.43 1.43zM3.41.86L2 2.27l4.22 4.22L3 9l9 7l2.1-1.63l1.42 1.42l-3.53 2.75l-7.37-5.73L3 14.07l9 7l4.95-3.85L20.73 21l1.41-1.41L3.41.86zM12 13.47L6.26 9l1.39-1.08l5.02 5.02l-.67.53z"/></svg>
+      </button>
+    </div>
+  </div>
+</ion-content>

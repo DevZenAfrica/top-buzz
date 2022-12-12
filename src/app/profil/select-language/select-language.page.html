@@ -1,0 +1,40 @@
+<ion-header class="text-white ion-no-border" translucent="true">
+  <ion-toolbar color="translucent">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/profil"></ion-back-button>
+      <ion-title class="font-medium">{{'12.1' | translate}}</ion-title>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <form #form="ngForm" (ngSubmit)="saveLanguage()">
+        <ion-button type="submit" [disabled]="isLoading || form.invalid">
+          {{'12.4' | translate}}
+        </ion-button>
+      </form>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <div class="max-w-full h-fit mt-3 mx-3 px-3 py-5 bg-white rounded-md">
+    <h3 class="text-xl font-medium text-gray-900">{{'12.2' | translate}}</h3>
+
+    <ion-list lines="none">
+      <ion-radio-group value="{{currentLanguage}}">
+        <ion-item>
+          <ion-label>{{'12.3' | translate}}</ion-label>
+          <ion-radio (click)="currentLanguageSelect = ''" slot="start" value=""></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>English</ion-label>
+          <ion-radio (click)="currentLanguageSelect = 'en'" slot="start" value="en"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Français</ion-label>
+          <ion-radio (click)="currentLanguageSelect = 'fr'" slot="start" value="fr"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+</ion-content>
