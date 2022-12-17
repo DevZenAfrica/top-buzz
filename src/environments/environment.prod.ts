@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   appName: 'Top BUZZ',
   numberVersion: 1,
-  version: '08.12.22-17.30',
+  version: '17.12.22-20.29',
   yearVersion: '2022',
   apiServerFile: 'https://topbuzz.lol/upload_file/',
   apiCors: 'https://cors-anywhere-zen.onrender.com',

@@ -100,7 +100,7 @@ export class NewPage implements OnInit {
   uploadImage() {
     this.isLoading = true;
     const gid = new ToolsService();
-    this.currentArticle.typeMedia = this.typeFile;
+    this.currentArticle.typeMedia = this.typeFile ? this.typeFile : '';
 
     /* Gestion quick sondage */
     if(this.sondageExpressSelect !== 0) {
@@ -137,10 +137,9 @@ export class NewPage implements OnInit {
     }
     /* Fin quick sondage */
 
-    if(this.typeFile === 'img') {
-      //this.apiService.addImageForAdresseId( gid.generateId(23).toString() , 'images/', this.imgFile ? this.sanitizer.bypassSecurityTrustResourceUrl(this.imgFile).toString() : '').then(
-      this.apiService.putFileInServer(this.imgFile ? this.sanitizer.bypassSecurityTrustResourceUrl(this.imgFile).toString() : '', this.extensionFile).then(
-        (docRef: string) => {
+    this.apiService.putFileInServer(this.imgFile ? this.sanitizer.bypassSecurityTrustResourceUrl(this.imgFile).toString() : '', this.extensionFile).then(
+      (docRef: string) => {
+        if(docRef) {
           this.lienGenerer = this.imgFile ? docRef : '';
           this.currentArticle.media = this.lienGenerer;
           this.currentArticle.auteur = this.currentUser.id;
@@ -153,30 +152,13 @@ export class NewPage implements OnInit {
               document.location.href= '/';
             }
           );
-        }, () => {
-          this.isLoading = false;
-          this.alertService.print('An error occurred during the operation, please try again');
-        });
-    } else {
-      this.apiService.addMovieForAdresseId( gid.generateId(23).toString() , 'videos/', this.imgFile ? this.sanitizer.bypassSecurityTrustResourceUrl(this.imgFile).toString() : '').then(
-        (docRef: string) => {
-          this.lienGenerer = this.imgFile ? docRef : '';
-          this.currentArticle.media = this.lienGenerer;
-          this.currentArticle.auteur = this.currentUser.id;
-          this.currentArticle.idCountry = this.countryArticle;
-          this.currentArticle.tagHidden.push(this.currentUser.userName);
-          this.articleService.add(this.currentArticle).then(
-            () => {
-              this.alertService.print('Publication done');
-              this.isLoading = false;
-              document.location.href= '/';
-            }
-          );
-        }, () => {
-          this.isLoading = false;
-          this.alertService.print('An error occurred during the operation, please try again');
-        });
-    }
+        } else {
+          this.alertService.print('No files found');
+        }
+      }, () => {
+        this.isLoading = false;
+        this.alertService.print('An error occurred during the operation, please try again');
+      });
   }
 
   formatBytes(bytes) {

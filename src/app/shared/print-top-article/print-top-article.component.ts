@@ -25,7 +25,16 @@ export class PrintTopArticleComponent implements OnInit {
   ngOnInit() {
     this.articleService.getTopArticles().then(
       (data) => {
-        this.articles = data;
+        const idRecup = localStorage.getItem('id') ? localStorage.getItem('id') : (localStorage.getItem('guestId') ? localStorage.getItem('guestId') : '');
+        const artVus = []; const artNonVus = [];
+        data.forEach(function(doc) {
+          if(doc.vues.includes(idRecup)) {
+            artVus.push(doc);
+          } else {
+            artNonVus.push(doc);
+          }
+        });
+        this.articles = artNonVus.concat(artVus);
       }
     );
   }

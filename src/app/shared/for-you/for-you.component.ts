@@ -23,7 +23,18 @@ export class ForYouComponent implements OnInit {
   ngOnInit() {
     this.articleService.getAllArticles().then(
       (data) => {
-        this.articles = this.randTableau (data);
+        const idRecup = localStorage.getItem('id') ? localStorage.getItem('id') : (localStorage.getItem('guestId') ? localStorage.getItem('guestId') : '');
+        let artVus = []; let artNonVus = [];
+        data.forEach(function(doc) {
+          if(doc.vues.includes(idRecup)) {
+            artVus.push(doc);
+          } else {
+            artNonVus.push(doc);
+          }
+        });
+        artNonVus = this.randTableau(artNonVus);
+        artVus = this.randTableau(artVus);
+        this.articles = artNonVus.concat(artVus);
       }
     );
   }
